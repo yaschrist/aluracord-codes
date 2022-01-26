@@ -65,6 +65,18 @@ export default function PaginaInicial() {
   // const username = 'yaschrist';
   const [username, setUsername] = React.useState('');
   const roteamento = useRouter();
+  const errorImage = 'https://image.freepik.com/vetores-gratis/glitch-error-404-page_23-2148105404.jpg';
+
+  /* const [githubData, setGithubData] = React.useState(''); */
+
+  // trazer dados da api do github 
+/*   fetch(`https://api.github.com/users/${username}`)
+            .then((res) => {
+                return res.json()
+            })
+            .then((data) => {
+                setGithubData(data)
+            }) */
 
 
   return (
@@ -111,6 +123,7 @@ export default function PaginaInicial() {
             <Titulo tag="h2">Boas vindas!</Titulo>
             <Text variant="body3" styleSheet={{ marginBottom: '32px', color: appConfig.theme.colors.neutrals[300] }}>
               {appConfig.name}
+ 
             </Text>
 
 {/*             <input type="text" 
@@ -180,7 +193,8 @@ export default function PaginaInicial() {
                 borderRadius: '50%',
                 marginBottom: '16px',
               }}
-              src={`https://github.com/${username}.png`}
+              //src={`https://github.com/${username}.png`}
+              src={username.length > 2 ? `https://github.com/${username}.png` : errorImage}
             />
             <Text
               variant="body4"
