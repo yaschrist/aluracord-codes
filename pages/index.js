@@ -1,4 +1,6 @@
 import { Box, Button, Text, TextField, Image } from '@skynexui/components';
+import React from 'react';
+import {useRouter} from 'next/router';
 import appConfig from '../config.json';
 
 function GlobalStyle() {
@@ -60,7 +62,22 @@ function Titulo(props) {
 // export default HomePage
 
 export default function PaginaInicial() {
-  const username = 'yaschrist';
+  // const username = 'yaschrist';
+  const [username, setUsername] = React.useState('');
+  const roteamento = useRouter();
+  const errorImage = 'https://cdn-icons-png.flaticon.com/512/25/25231.png';
+
+  /* const [githubData, setGithubData] = React.useState(''); */
+
+  // trazer dados da api do github 
+/*   fetch(`https://api.github.com/users/${username}`)
+            .then((res) => {
+                return res.json()
+            })
+            .then((data) => {
+                setGithubData(data)
+            }) */
+
 
   return (
     <>
@@ -91,6 +108,13 @@ export default function PaginaInicial() {
           {/* Formulário */}
           <Box
             as="form"
+
+            onSubmit={function (infosDoEvento) {
+              infosDoEvento.preventDefault();
+              roteamento.push('/chat');
+              console.log('submeteu');
+            }}
+
             styleSheet={{
               display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
               width: { xs: '100%', sm: '50%' }, textAlign: 'center', marginBottom: '32px',
@@ -99,9 +123,30 @@ export default function PaginaInicial() {
             <Titulo tag="h2">Boas vindas!</Titulo>
             <Text variant="body3" styleSheet={{ marginBottom: '32px', color: appConfig.theme.colors.neutrals[300] }}>
               {appConfig.name}
+ 
             </Text>
 
-            <TextField
+{/*             <input type="text" 
+            value={username}
+            onChange = {function (event) {
+              console.log('Usuario digitou')
+              const valor = event.target.value;
+              //Trocar o valor da variável 
+              setUsername(valor);
+
+            }}
+             /> */}
+
+           
+             <TextField
+              value={username}
+              onChange = {function (event) {
+              console.log('Usuario digitou')
+              const valor = event.target.value;
+                           //Trocar o valor da variável 
+              setUsername(valor);
+             
+                         }}
               fullWidth
               textFieldColors={{
                 neutral: {
@@ -111,7 +156,7 @@ export default function PaginaInicial() {
                   backgroundColor: appConfig.theme.colors.neutrals[800],
                 },
               }}
-            />
+            /> 
             <Button
               type='submit'
               label='Entrar'
@@ -148,7 +193,8 @@ export default function PaginaInicial() {
                 borderRadius: '50%',
                 marginBottom: '16px',
               }}
-              src={`https://github.com/${username}.png`}
+              //src={`https://github.com/${username}.png`}
+              src={username.length > 2 ? `https://github.com/${username}.png` : errorImage}
             />
             <Text
               variant="body4"
