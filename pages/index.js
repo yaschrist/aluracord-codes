@@ -65,7 +65,7 @@ export default function PaginaInicial() {
   // const username = 'yaschrist';
   const [username, setUsername] = React.useState('');
   const roteamento = useRouter();
-  const errorImage = 'https://image.freepik.com/vetores-gratis/glitch-error-404-page_23-2148105404.jpg';
+  const errorImage = 'https://cdn-icons-png.flaticon.com/512/25/25231.png';
 
   /* const [githubData, setGithubData] = React.useState(''); */
 
