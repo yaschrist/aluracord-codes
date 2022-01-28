@@ -111,7 +111,8 @@ export default function PaginaInicial() {
 
             onSubmit={function (infosDoEvento) {
               infosDoEvento.preventDefault();
-              roteamento.push('/chat');
+              //roteamento.push('/chat?username=' + username);
+              roteamento.push(`/chat?username=${username}`);
               console.log('submeteu');
             }}
 
