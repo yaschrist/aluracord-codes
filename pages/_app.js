@@ -1,4 +1,6 @@
+
 import appConfig from '../config.json';
+
 
 function GlobalStyle() {
     return (
@@ -49,3 +51,5 @@ export default function MyApp({ Component, pageProps}) {
     </>
     )
 }
+
+
