@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from 'react';
 import { Box, Button, Text, Image } from '@skynexui/components';
 import appConfig from '../../config.json';
@@ -100,4 +101,3 @@ export function ButtonSendSticker(props) {
       )}
     </Box>
   )
-}
